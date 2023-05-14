@@ -1,31 +1,3 @@
-//INTEGRATED GEOLOCATION API
-const successCallback = (position) => {
-  console.log(position);
-};
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
-//NAV EXTENSION
-const burgerBtn = document.querySelector(".burger");
-const navPanel = document.querySelector(".nav-map");
-const overLay = document.querySelector("overlay");
-
-const hidden = () => {
-  if (navPanel.classList.contains("hide")) {
-    navPanel.classList.remove("hide");
-  } else {
-    navPanel.classList.add("hide");
-  }
-};
-burgerBtn.addEventListener("click", hidden);
-
-document.addEventListener("keydown", (e) => {
-  let keyName = e.key;
-  document.querySelector(".nav-map").classList.add("hide");
-});
-
 //COLLAPSIBLE SETTINGS
 
 let pickInput = document.querySelector(".pick");
@@ -53,3 +25,20 @@ const newFunc = (e) => {
 
 document.querySelector(".pick").addEventListener("input", newFunc);
 document.querySelector(".return").addEventListener("input", newFunc);
+
+//CARDS
+const panels = document.querySelectorAll(".panel");
+
+panels.forEach((panel) => {
+  panel.addEventListener("click", () => {
+    removeActiveClasses();
+
+    panel.classList.add("active");
+  });
+});
+
+function removeActiveClasses() {
+  panels.forEach((panel) => {
+    panel.classList.remove("active");
+  });
+}

@@ -34,7 +34,7 @@ header {
 
 .input {
   height: 45px;
-  width: 100%;
+  width: auto;
   border: none;
   outline: none;
   border-radius: 30px;
